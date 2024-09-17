@@ -6,14 +6,12 @@
 /*   By: mboujama <mboujama@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 15:55:59 by mboujama          #+#    #+#             */
-/*   Updated: 2024/09/16 16:35:15 by mboujama         ###   ########.fr       */
+/*   Updated: 2024/09/17 10:01:14 by mboujama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 #include "Contact.hpp"
-#include <iostream>
-using namespace std;
 
 void	print_menu()
 {
@@ -23,30 +21,40 @@ void	print_menu()
 	cout << "❌ EXIT: exit the program\n";
 }
 
-void	add_contact(PhoneBook phonebook)
+void	create_contact(PhoneBook& phonebook)
 {
-	// Contact		new_contact;
-	// string str;
+	Contact		new_contact;
+	string		str;
 
 	cout << "Enter first name: ";
-	// cin >> str;
-	// new_contact.set_first_name(str);
+	cin >> str;
+	new_contact.set_first_name(str);
 	
-	// cout << "Enter last name: ";
-	// cin >> str;
-	// new_contact.set_last_name(str);
+	cout << "Enter last name: ";
+	cin >> str;
+	new_contact.set_last_name(str);
 
-	// cout << "Enter nickname: ";
-	// cin >> str;
-	// new_contact.set_first_name(str);
+	cout << "Enter nickname: ";
+	cin >> str;
+	new_contact.set_nickname(str);
 
-	// cout << "Enter phone number: ";
-	// cin >> str;
-	// new_contact.set_first_name(str);
+	cout << "Enter phone number: ";
+	cin >> str;
+	new_contact.set_phone_number(str);
 
-	// cout << "Enter darkest secret: ";
-	// cin >> str;
-	// new_contact.set_first_name(str);
+	cout << "Enter darkest secret: ";
+	cin >> str;
+	new_contact.set_darkest_secret(str);
+
+	cout << "first_name " << new_contact.get_first_name() << endl;
+	cout << "last_name " << new_contact.get_last_name() << endl;
+	cout << "nickname " << new_contact.get_nickname() << endl;
+	cout << "phone " << new_contact.get_phone_number() << endl;
+	cout << "secret " << new_contact.get_darkest_secret() << endl;
+
+	phonebook.add_contact(new_contact);
+
+	cout << "Contact created ✅" << endl;
 }
 
 void	search_contact()
@@ -56,16 +64,19 @@ void	search_contact()
 
 int main()
 {
-	PhoneBook	phonebook;
+	PhoneBook	phonebook(0, 0);
 	string		choice;
 
 	while (1)
 	{
 		print_menu();
-		cout << "=> Enter your choice: ";
+		cout << "\n=> Enter your choice: ";
 		cin >> choice;
 		if (!choice.compare("ADD"))
-			add_contact(phonebook);
+		{
+			create_contact(phonebook);
+			phonebook.print_contacts();
+		}
 		else if (!choice.compare("SEARCH"))
 			search_contact();
 		else if (!choice.compare("EXIT"))

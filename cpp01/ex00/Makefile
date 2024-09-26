@@ -1,18 +1,18 @@
-NAME	= megaphone
+NAME	= braiiinz
 
 CC		= c++
 CFLAGS	= -Wall -Wextra -Werror -std=c++98
 
-SRC		= megaphone.cpp
+SRC		= Zombie.cpp main.cpp newZombie.cpp randomChump.cpp
 OBJ		= $(SRC:.cpp=.o)
 
 all: $(NAME)
 
-%.o : %.cpp
-	$(CC) $(CFLAGS) -c $< -o $@
-
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+
+%.o : %.cpp
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean: 
 	rm -rf $(OBJ)

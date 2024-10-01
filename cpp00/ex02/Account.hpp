@@ -13,7 +13,7 @@
 # define __ACCOUNT_H__
 
 # include <iostream>
-using namespace std;
+#include <ctime>
 
 // ************************************************************************** //
 //                               Account Class                                //

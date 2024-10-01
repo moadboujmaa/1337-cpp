@@ -6,7 +6,7 @@
 /*   By: mboujama <mboujama@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 13:53:05 by mboujama          #+#    #+#             */
-/*   Updated: 2024/09/17 09:51:49 by mboujama         ###   ########.fr       */
+/*   Updated: 2024/10/01 13:20:07 by mboujama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #include "Contact.hpp"
 
 void	PhoneBook::add_contact(Contact new_contact) {
-	printf("here\n");
 	if (len_contacts <= 7) {
 		contacts[index] = new_contact;
 		index++;
@@ -26,17 +25,31 @@ void	PhoneBook::add_contact(Contact new_contact) {
 		contacts[index] = new_contact;
 		index++;
 	}
-	cout << index << len_contacts << endl;
 }
 
+std::string	set_field(std::string field) {
+	if (field.length() > 10)
+		return (field.substr(0, 9) + ".");
+	return (field);
+}
 
 void	PhoneBook::print_contacts()
 {
-	// cout << "here index = " << index << "len" << len_contacts << endl;
 	for (int i = 0; i < len_contacts; i++)
 	{
-		cout << "+----------+----------+----------+----------+\n";
-		cout << "|" << contacts[i].get_first_name() << "|" << contacts[i].get_last_name() << "|" << contacts[i].get_nickname() << "|" << contacts[i].get_phone_number() << "|\n";
-		cout << "+----------+----------+----------+----------+\n";
+		std::cout << "+----------+----------+----------+----------+\n";
+		std::cout <<  "|" << std::setw(10) << i
+			<< "|" << std::setw(10) << set_field(contacts[i].get_first_name()) 
+			<< "|" << std::setw(10) << set_field(contacts[i].get_last_name()) 
+			<< "|" << std::setw(10) << set_field(contacts[i].get_nickname()) << "|\n";
 	}
+	std::cout << "+----------+----------+----------+----------+" << std::endl;
+}
+
+Contact	PhoneBook::get_contact(int id) {
+	return (contacts[id]);
+}
+
+int PhoneBook::getLenContacts() {
+	return (len_contacts);
 }

@@ -1,7 +1,7 @@
 NAME	= moar_braiinz
 
 CC		= c++
-CFLAGS	= -Wall -Wextra -Werror -std=c++98 # -fsanitize=address -g
+CFLAGS	= -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g
 
 SRC		= Zombie.cpp main.cpp zombieHorde.cpp
 OBJ		= $(SRC:.cpp=.o)

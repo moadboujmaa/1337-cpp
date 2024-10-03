@@ -6,7 +6,7 @@
 /*   By: mboujama <mboujama@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 11:46:33 by mboujama          #+#    #+#             */
-/*   Updated: 2024/09/26 13:14:25 by mboujama         ###   ########.fr       */
+/*   Updated: 2024/09/28 12:22:40 by mboujama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ Zombie::Zombie(std::string name) {
 }
 
 Zombie::~Zombie() {
-	// cout << _name << ": is destroyed" << endl;
+	std::cout << _name << ": is destroyed" << std::endl;
 }
 
 void	Zombie::announce(void) {

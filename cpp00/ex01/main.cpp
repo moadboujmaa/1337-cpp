@@ -6,7 +6,7 @@
 /*   By: mboujama <mboujama@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 15:55:59 by mboujama          #+#    #+#             */
-/*   Updated: 2024/10/01 13:23:25 by mboujama         ###   ########.fr       */
+/*   Updated: 2024/10/01 15:58:14 by mboujama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,27 +47,27 @@ void	create_contact(PhoneBook& phonebook)
 	std::cout << "Enter first name: ";
 	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	getline(std::cin, str);
-	if (!is_valid_str(str) || str.length() == 0)
+	if (str.length() == 0)
 	{
-		std::cout << "first name must only have alphabets and spaces and not empty\n" << std::endl;
+		std::cout << "first name shouldn't be empty\n" << std::endl;
 		return ;
 	}
 	new_contact.set_first_name(str);
 	
 	std::cout << "Enter last name: ";
 	getline(std::cin, str);
-	if (!is_valid_str(str) || str.length() == 0)
+	if (!str.length() == 0)
 	{
-		std::cout << "last name must only have alphabets and spaces and not empty\n" << std::endl;
+		std::cout << "last name shouldn't be empty\n" << std::endl;
 		return ;
 	}
 	new_contact.set_last_name(str);
 
 	std::cout << "Enter nickname: ";
 	getline(std::cin, str);
-	if (!is_valid_str(str) || str.length() == 0)
+	if (str.length() == 0)
 	{
-		std::cout << "nickname must only have alphabets and spaces and not empty\n" << std::endl;
+		std::cout << "nickname must shouldn't be empty\n" << std::endl;
 		return ;
 	}
 	new_contact.set_nickname(str);
@@ -83,9 +83,9 @@ void	create_contact(PhoneBook& phonebook)
 
 	std::cout << "Enter darkest secret: ";
 	getline(std::cin, str);
-	if (!is_valid_str(str) || str.length() == 0)
+	if (str.length() == 0)
 	{
-		std::cout << "darkest secret must only have alphabets and spaces and not empty\n" << std::endl;
+		std::cout << "darkest secret shouldn't be empty\n" << std::endl;
 		return ;
 	}
 	new_contact.set_darkest_secret(str);
@@ -131,7 +131,7 @@ int main()
 			search_contact(phonebook);
 		else if (!choice.compare("EXIT"))
 		{
-			std::cout << "Bye 👋🏽\n";
+			std::cout << "Bye 👋\n";
 			exit(0);
 		}
 	}

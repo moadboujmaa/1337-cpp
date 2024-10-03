@@ -6,7 +6,7 @@
 /*   By: mboujama <mboujama@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 11:43:56 by mboujama          #+#    #+#             */
-/*   Updated: 2024/09/18 13:45:56 by mboujama         ###   ########.fr       */
+/*   Updated: 2024/09/28 12:24:44 by mboujama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,11 @@ int main() {
 	Zombie zz;
 	Zombie* zom;
 
-	zom = zz.newZombie("moad");
+	zom = newZombie("moad");
 	zom->announce();
-	zom = zz.newZombie("rafiq");
+	delete zom;
+	zom = newZombie("rafiq");
 	zom->announce();
+	delete zom;
 	return (0);
 }

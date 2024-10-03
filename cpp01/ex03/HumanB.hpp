@@ -6,7 +6,7 @@
 /*   By: mboujama <mboujama@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/21 21:41:40 by mboujama          #+#    #+#             */
-/*   Updated: 2024/09/22 15:13:52 by mboujama         ###   ########.fr       */
+/*   Updated: 2024/10/02 15:00:46 by mboujama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@
 class HumanB {
 	private:
 		std::string _name;
-		Weapon*		_weapon;
+		Weapon		*_weapon;
 	public:
 		void	attack();
-		void	setWeapon(Weapon weapon);
+		void	setWeapon(Weapon& weapon);
 		HumanB(std::string name);	
 };
 

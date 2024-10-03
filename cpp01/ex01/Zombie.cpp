@@ -6,7 +6,7 @@
 /*   By: mboujama <mboujama@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 15:49:59 by mboujama          #+#    #+#             */
-/*   Updated: 2024/09/26 13:17:24 by mboujama         ###   ########.fr       */
+/*   Updated: 2024/09/28 11:05:23 by mboujama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,11 @@
 Zombie::Zombie() {
 }
 
-Zombie::Zombie(std::string name) {
+Zombie::~Zombie() {
+	std::cout << "deleted" << std::endl;
+}
+
+void Zombie::setName(std::string name) {
 	_name = name;
 }
 

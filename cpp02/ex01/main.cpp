@@ -1,19 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboujama <mboujama@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/21 21:41:29 by mboujama          #+#    #+#             */
-/*   Updated: 2024/10/05 15:15:39 by mboujama         ###   ########.fr       */
+/*   Created: 2024/11/10 15:00:59 by mboujama          #+#    #+#             */
+/*   Updated: 2024/11/13 12:37:45 by mboujama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "HumanA.hpp"
+#include "Fixed.hpp"
 
-HumanA::HumanA(std::string name, Weapon &weapon) : _weapon(weapon), _name(name) {}
+int main(void)
+{
+	Fixed a;
+	Fixed b(a);
+	Fixed c;
+	
+	c = b;
 
-void	HumanA::attack() {
-	std::cout << _name << " attacks with their " << _weapon.getType() << std::endl;
+	std::cout << a.getRawBits() << std::endl;
+	std::cout << b.getRawBits() << std::endl;
+	std::cout << c.getRawBits() << std::endl;
+	return 0;
 }

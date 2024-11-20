@@ -1,0 +1,17 @@
+.vscode
+.DS_Store
+*.o
+megaphone
+phonebook
+*.log
+sed
+violence
+braiiinz
+moar_braiinz
+brain
+*.txt
+harl
+harlFilter
+fclean.sh
+test.*
+Fixed

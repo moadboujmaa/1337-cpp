@@ -4,6 +4,7 @@ CC		= c++
 CFLAGS	= -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g
 
 SRC		= Zombie.cpp main.cpp zombieHorde.cpp
+HEADERS	= Zombie.hpp
 OBJ		= $(SRC:.cpp=.o)
 
 all: $(NAME)
@@ -11,7 +12,7 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
-%.o : %.cpp
+%.o : %.cpp $(HEADERS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean: 

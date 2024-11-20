@@ -1,15 +1,14 @@
-NAME	= violence
+NAME	= Fixed
 
 CC		= c++
 CFLAGS	= -Wall -Wextra -Werror -std=c++98
 
-SRC		= main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
-HEADERS	= Weapon.hpp HumanA.hpp HumanB.hpp
+SRC		= main.cpp Fixed.cpp
 OBJ		= $(SRC:.cpp=.o)
 
 all: $(NAME)
 
-%.o : %.cpp $(HEADERS)
+%.o : %.cpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJ)

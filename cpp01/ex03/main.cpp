@@ -6,7 +6,7 @@
 /*   By: mboujama <mboujama@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/21 21:40:17 by mboujama          #+#    #+#             */
-/*   Updated: 2024/10/02 13:16:26 by mboujama         ###   ########.fr       */
+/*   Updated: 2024/10/05 12:44:42 by mboujama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,4 @@ int main()
 		club.setType("some other type of club");
 		jim.attack();
 	}
-	return (0);
 }

@@ -26,7 +26,6 @@ Fixed::Fixed(const int nb)
 {
 	std::cout << "Int constructor called" << std::endl;
 	fixed_nb = nb << fractional_nb;
-
 }
 
 Fixed::Fixed(const float nb)
@@ -36,7 +35,7 @@ Fixed::Fixed(const float nb)
 }
 
 float Fixed::toFloat(void) const {
-	return ((float)fixed_nb / (1 << fractional_nb));
+	return (fixed_nb / (1 << fractional_nb));
 }
 
 int Fixed::toInt(void) const {
@@ -51,12 +50,11 @@ Fixed &Fixed::operator=(const Fixed &t)
 	return (*this);
 }
 
-std::ostream& operator<<(std::ostream& os, const Fixed& fixed) {
-    os << fixed.toFloat();
-    return os;
+Fixed &Fixed::operator<<(const Fixed &t) {
+	
 }
 
-Fixed::~Fixed()
+	Fixed::~Fixed()
 {
 	std::cout << "Destructor called" << std::endl;
 }

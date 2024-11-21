@@ -26,12 +26,11 @@ class Fixed {
 		Fixed(const float nb);
 		float toFloat(void) const;
 		int toInt( void ) const;
-		Fixed &operator=(const Fixed &t);
+		Fixed &operator=(const Fixed &t); // copy assignment operator
+		Fixed &operator<<(const Fixed &t); // copy assignment operator
 		~Fixed(); // destructor
 		int getRawBits( void ) const;
 		void setRawBits( int const raw );
 };
-
-std::ostream& operator<<(std::ostream& os, const Fixed& fixed);
 
 #endif

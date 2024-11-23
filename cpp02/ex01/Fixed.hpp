@@ -6,7 +6,7 @@
 /*   By: mboujama <mboujama@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 15:00:56 by mboujama          #+#    #+#             */
-/*   Updated: 2024/11/21 15:47:11 by mboujama         ###   ########.fr       */
+/*   Updated: 2024/11/23 10:58:30 by mboujama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,13 @@ class Fixed {
 	public:
 		Fixed(); // default constructor
 		Fixed(const Fixed &obj); // copy constructor
+		Fixed &operator=(const Fixed &t); // assignment operator
+		~Fixed(); // destructor
+
 		Fixed(const int nb);
 		Fixed(const float nb);
 		float toFloat(void) const;
 		int toInt( void ) const;
-		Fixed &operator=(const Fixed &t);
-		~Fixed(); // destructor
 		int getRawBits( void ) const;
 		void setRawBits( int const raw );
 };

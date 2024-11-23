@@ -6,7 +6,7 @@
 /*   By: mboujama <mboujama@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 15:01:02 by mboujama          #+#    #+#             */
-/*   Updated: 2024/11/21 15:48:00 by mboujama         ###   ########.fr       */
+/*   Updated: 2024/11/23 15:40:32 by mboujama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ std::ostream& operator<<(std::ostream& os, const Fixed& fixed) {
 
 Fixed::~Fixed()
 {
-	std::cout << "Destructor called" << std::endl;
+	// std::cout << "Destructor called" << std::endl;
 }
 
 int Fixed::getRawBits(void) const {
@@ -71,8 +71,7 @@ void Fixed::setRawBits(int const raw) {
 	fixed_nb = raw;
 }
 
-//// This exercise functions:
-/// 6 comparison operators
+// 6 comparison operators
 // overload <
 bool Fixed::operator<(const Fixed &t) {
     if (this->getRawBits() < t.getRawBits())

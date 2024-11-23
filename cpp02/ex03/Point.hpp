@@ -6,7 +6,7 @@
 /*   By: mboujama <mboujama@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 10:49:37 by mboujama          #+#    #+#             */
-/*   Updated: 2024/11/23 10:52:38 by mboujama         ###   ########.fr       */
+/*   Updated: 2024/11/23 15:37:58 by mboujama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,21 @@
 # define POINT_HPP
 
 # include "Fixed.hpp"
-# include <iostream>
 
 class Point {
 	private:
-		const Fixed x;
-		const Fixed y;
+		const Fixed _x;
+		const Fixed _y;
 	public:
-		Point();
-		Point(const Fixed x, const Fixed y);
-		~Point();
+		Point(); // constructor
+		Point(const Point &obj); // Copy constructor
+		Point &operator=(const Point &t); // copy assignment operator
+		~Point();						 // destructor
+		Point(const Fixed x_val, const Fixed y_val);
+		Fixed getX();
+		Fixed getY();
 };
+
+bool bsp(Point const a, Point const b, Point const c, Point const point);
 
 #endif 

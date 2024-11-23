@@ -15,3 +15,5 @@ harlFilter
 fclean.sh
 test.*
 Fixed
+*.md
+.idea

@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Point.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboujama <mboujama@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/10 15:00:59 by mboujama          #+#    #+#             */
-/*   Updated: 2024/11/21 15:45:50 by mboujama         ###   ########.fr       */
+/*   Created: 2024/11/23 10:49:37 by mboujama          #+#    #+#             */
+/*   Updated: 2024/11/23 10:52:38 by mboujama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#ifndef POINT_HPP
+# define POINT_HPP
 
-int main( void ) {
-    Fixed a;
-    Fixed const b(Fixed(5.05f) * Fixed(2));
+# include "Fixed.hpp"
+# include <iostream>
 
-    std::cout << a << std::endl;
-    std::cout << ++a << std::endl;
-    std::cout << a << std::endl;
-    std::cout << a++ << std::endl;
-    std::cout << a << std::endl;
+class Point {
+	private:
+		const Fixed x;
+		const Fixed y;
+	public:
+		Point();
+		Point(const Fixed x, const Fixed y);
+		~Point();
+};
 
-    std::cout << b << std::endl;
-
-    std::cout << Fixed::max(a, b) << std::endl;
-    return 0;
-}
+#endif 

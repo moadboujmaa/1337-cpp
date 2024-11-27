@@ -6,7 +6,7 @@
 /*   By: mboujama <mboujama@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 15:01:02 by mboujama          #+#    #+#             */
-/*   Updated: 2024/11/23 15:40:32 by mboujama         ###   ########.fr       */
+/*   Updated: 2024/11/25 16:21:23 by mboujama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,40 @@
 
 const int Fixed::fractional_nb = 8;
 
-Fixed::Fixed() : fixed_nb(0) {
-	std::cout << "Default constructor called" << std::endl;
+// Constructor
+Fixed::Fixed() : fixed_nb(0) {}
+
+// Copy constructor
+Fixed::Fixed(const Fixed &obj) : fixed_nb(obj.fixed_nb) {}
+
+// Copy assignment operator
+Fixed &Fixed::operator=(const Fixed &obj)
+{
+    if (this != &obj)
+        this->fixed_nb = obj.fixed_nb;
+    return (*this);
 }
 
-Fixed::Fixed(const Fixed &obj) : fixed_nb(obj.fixed_nb) {
-	std::cout << "Copy constructor called" << std::endl;
+// Destructor
+Fixed::~Fixed() {}
+
+int Fixed::getRawBits(void) const {
+    return (fixed_nb);
 }
+
+void Fixed::setRawBits(int const raw) {
+    fixed_nb = raw;
+}
+
 
 Fixed::Fixed(const int nb)
 {
-	std::cout << "Int constructor called" << std::endl;
 	fixed_nb = nb << fractional_nb;
-
 }
 
 Fixed::Fixed(const float nb)
 {
-	std::cout << "Float constructor called" << std::endl;
-	fixed_nb = round(nb * (1 << fractional_nb));
+	fixed_nb = roundf(nb * (1 << fractional_nb));
 }
 
 float Fixed::toFloat(void) const {
@@ -43,32 +58,9 @@ int Fixed::toInt(void) const {
 	return (fixed_nb >> fractional_nb);
 }
 
-Fixed &Fixed::operator=(const Fixed &t)
-{
-	std::cout << "Copy assignment operator called" << std::endl;
-	if (this != &t)
-		this->fixed_nb = t.fixed_nb;
-	return (*this);
-}
-
 std::ostream& operator<<(std::ostream& os, const Fixed& fixed) {
     os << fixed.toFloat();
     return os;
-}
-
-Fixed::~Fixed()
-{
-	// std::cout << "Destructor called" << std::endl;
-}
-
-int Fixed::getRawBits(void) const {
-	std::cout << "getRawBits member function called" << std::endl;
-	return (fixed_nb);
-}
-
-void Fixed::setRawBits(int const raw) {
-	std::cout << "setRawBits member function called" << std::endl;
-	fixed_nb = raw;
 }
 
 // 6 comparison operators
@@ -109,8 +101,6 @@ bool Fixed::operator==(const Fixed &t) {
 
 // overload !=
 bool Fixed::operator!=(const Fixed &t) {
-    std::cout << this->toFloat() << std::endl;
-    std::cout << t.toFloat() << std::endl;
     if (this->getRawBits() != t.getRawBits())
         return true;
     return false;
@@ -118,23 +108,31 @@ bool Fixed::operator!=(const Fixed &t) {
 
 /// 4 arithmetic operators
 // overload +
-Fixed Fixed::operator+(const Fixed &t) {
-    return Fixed(this->toFloat() + t.toFloat());
+Fixed Fixed::operator+(const Fixed &obj) {
+    Fixed ret;
+    ret.setRawBits(this->getRawBits() + obj.getRawBits());
+    return (ret);
 }
 
 //overload -
-Fixed Fixed::operator-(const Fixed &t) {
-    return Fixed(this->toFloat() - t.toFloat());
+Fixed Fixed::operator-(const Fixed &obj) {
+    Fixed ret;
+    ret.setRawBits(this->getRawBits() - obj.getRawBits());
+    return (ret);
 }
 
 //overload *
-Fixed Fixed::operator*(const Fixed &t) {
-    return Fixed(this->toFloat() * t.toFloat());
+Fixed Fixed::operator*(const Fixed &obj) {
+    Fixed ret;
+    ret.setRawBits((this->getRawBits() * obj.getRawBits()) >> fractional_nb);
+    return (ret);
 }
 
 //overload /
-Fixed Fixed::operator/(const Fixed &t) {
-    return Fixed(this->toFloat() / t.toFloat());
+Fixed Fixed::operator/(const Fixed &obj) {
+    Fixed ret;
+    ret.setRawBits((this->getRawBits() * (1 << fractional_nb)) / obj.getRawBits());
+    return (ret);
 }
 
 /// 4 increment/decrement operators

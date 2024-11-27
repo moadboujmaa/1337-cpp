@@ -6,7 +6,7 @@
 /*   By: mboujama <mboujama@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 10:49:37 by mboujama          #+#    #+#             */
-/*   Updated: 2024/11/23 15:37:58 by mboujama         ###   ########.fr       */
+/*   Updated: 2024/11/25 16:21:47 by mboujama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,18 @@
 
 class Point {
 	private:
-		const Fixed _x;
-		const Fixed _y;
+		const Fixed x;
+		const Fixed y;
+
 	public:
-		Point(); // constructor
+		Point(); // Constructor
 		Point(const Point &obj); // Copy constructor
-		Point &operator=(const Point &t); // copy assignment operator
-		~Point();						 // destructor
-		Point(const Fixed x_val, const Fixed y_val);
-		Fixed getX();
-		Fixed getY();
+		Point &operator=(const Point &obj); // Copy assignment operator
+		~Point();						 // Destructor
+
+        Point(const float x_val, const float y_val);
+		float getX();
+		float getY();
 };
 
 bool bsp(Point const a, Point const b, Point const c, Point const point);

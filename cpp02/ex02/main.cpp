@@ -6,7 +6,7 @@
 /*   By: mboujama <mboujama@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 15:00:59 by mboujama          #+#    #+#             */
-/*   Updated: 2024/11/21 15:45:50 by mboujama         ###   ########.fr       */
+/*   Updated: 2024/11/25 16:20:46 by mboujama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 int main( void ) {
     Fixed a;
-    Fixed const b(Fixed(5.05f) * Fixed(2));
+    Fixed const b(Fixed(5.05f) / Fixed(2));
 
+    std::cout << Fixed(5) * Fixed(2) << std::endl;
     std::cout << a << std::endl;
     std::cout << ++a << std::endl;
     std::cout << a << std::endl;

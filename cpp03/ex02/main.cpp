@@ -14,6 +14,7 @@
 
 int main() {
     FragTrap a("moad");
+
     a.attack("hello");
 	return (0);
 }

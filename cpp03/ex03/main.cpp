@@ -10,18 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int main() {
-	ClapTrap a("clap_1");
-
-    a.attack("clap_b");
-    a.takeDamage(2);
-    a.takeDamage(2);
-    a.takeDamage(2);
-    a.takeDamage(2);
-    a.takeDamage(2);
-    a.takeDamage(2);
-    a.beRepaired(3);
-    return (0);
+    DiamondTrap a("moad");
+    a.whoAmI();
+    a.highFivesGuys();
+	return (0);
 }

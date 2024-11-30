@@ -12,26 +12,19 @@
 
 #include "ScavTrap.hpp"
 
+// Constructor
 ScavTrap::ScavTrap(void)
 {
 	std::cout << "ScavTrap Default constructor called" << std::endl;
 }
 
-ScavTrap::~ScavTrap(void)
-{
-	std::cout << "ScavTrap Destructor called" << std::endl;
-}
-
+// Copy constructor
 ScavTrap::ScavTrap(const ScavTrap& obj) : ClapTrap(obj)
 {
 	std::cout << "ScavTrap Copy constructor called" << std::endl;
 }
 
-ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
-{
-    std::cout << "ScavTrap Copy constructor called" << std::endl;
-}
-
+// Copy assignment operator
 ScavTrap& ScavTrap::operator=(const ScavTrap& obj)
 {
 	std::cout << "ScavTrap Copy assignment operator called" << std::endl;
@@ -43,6 +36,17 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& obj)
         this->energy_points = obj.energy_points;
     }
     return (*this);
+}
+
+// Destructor
+ScavTrap::~ScavTrap(void)
+{
+    std::cout << "ScavTrap Destructor called" << std::endl;
+}
+
+ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
+{
+    std::cout << "ScavTrap constructor called" << std::endl;
 }
 
 void ScavTrap::attack(const std::string &target) {

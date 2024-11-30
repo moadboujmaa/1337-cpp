@@ -16,17 +16,17 @@
 # include <iostream>
 # include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap
+class ScavTrap : virtual public ClapTrap
 {
-	public:
-		ScavTrap(void); // Default constructor
-		ScavTrap(const ScavTrap& obj); // Copy constructor
-		ScavTrap&	operator=(const ScavTrap& obj); // Copy assignment operator
-		~ScavTrap(); // Destructor
+public:
+    ScavTrap(void); // Default constructor
+    ScavTrap(const ScavTrap& obj); // Copy constructor
+    ScavTrap&	operator=(const ScavTrap& obj); // Copy assignment operator
+    ~ScavTrap(); // Destructor
 
-        ScavTrap(std::string name);
-        void attack(const std::string &target);
-        void guardGate();
+    ScavTrap(std::string name);
+    void attack(const std::string &target);
+    void guardGate();
 };
 
 #endif

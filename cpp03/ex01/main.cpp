@@ -13,18 +13,21 @@
 #include "ScavTrap.hpp"
 
 int main() {
-//	ClapTrap a("clap_1");
-//
-//	a.attack("clap_2");
-//	a.beRepaired(2);
-//    a.takeDamage(2);
-//    a.takeDamage(2);
-//    a.takeDamage(2);
-//    a.takeDamage(2);
-//    a.takeDamage(2);
-//    a.takeDamage(2);
+    ScavTrap a("clap_1");
 
-    ScavTrap a("moad");
-    a.guardGate();
-	return (0);
+    a.attack("clap_b");
+    a.attack("clap_b");
+    a.takeDamage(21);
+    a.takeDamage(12);
+    a.takeDamage(15);
+    a.beRepaired(25);
+    a.takeDamage(12);
+    a.takeDamage(10);
+    a.takeDamage(9);
+    a.beRepaired(10);
+    a.takeDamage(50);
+    a.takeDamage(50);
+    a.takeDamage(50);
+    a.attack("clap_b");
+    return (0);
 }

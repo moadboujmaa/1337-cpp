@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboujama <mboujama@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/24 11:04:04 by mboujama          #+#    #+#             */
-/*   Updated: 2024/11/24 11:31:31 by mboujama         ###   ########.fr       */
+/*   Created: 2024/11/24 15:16:45 by mboujama          #+#    #+#             */
+/*   Updated: 2024/11/24 15:16:47 by mboujama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#ifndef FRAGTRAP_HPP
+# define FRAGTRAP_HPP
 
 # include <iostream>
 # include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap
+class FragTrap: virtual public ClapTrap
 {
 	public:
-		ScavTrap(void); // Default constructor
-		ScavTrap(const ScavTrap& obj); // Copy constructor
-		ScavTrap&	operator=(const ScavTrap& obj); // Copy assignment operator
-		~ScavTrap(); // Destructor
+		FragTrap(void); // Default constructor
+		FragTrap(const FragTrap& obj); // Copy constructor
+		FragTrap& operator=(const FragTrap& obj); // Copy assigment operator
+		~FragTrap(); // Destructor
 
-        ScavTrap(std::string name);
+        FragTrap(std::string name);
         void attack(const std::string &target);
-        void guardGate();
+        void highFivesGuys(void);
 };
 
 #endif

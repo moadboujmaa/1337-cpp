@@ -13,7 +13,7 @@
 #include "ClapTrap.hpp"
 
 // Constructor
-ClapTrap::ClapTrap() : hit_point(100), energy_points(50), attack_damage(20) {
+ClapTrap::ClapTrap() : hit_point(10), energy_points(10), attack_damage(0) {
     std::cout << "ClapTrap constructor called" << std::endl;
 }
 
@@ -39,7 +39,7 @@ ClapTrap::~ClapTrap() {
     std::cout << "ClapTrap Destructor called" << std::endl;
 }
 
-ClapTrap::ClapTrap(std::string _name) : name(_name), hit_point(100), energy_points(50), attack_damage(20) {
+ClapTrap::ClapTrap(std::string _name) : name(_name), hit_point(10), energy_points(10), attack_damage(0) {
     std::cout << "ClapTrap Constructor called" << std::endl;
 }
 

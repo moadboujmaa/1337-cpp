@@ -13,7 +13,7 @@
 #include "ClapTrap.hpp"
 
 // Constructor
-ClapTrap::ClapTrap() : hit_point(100), energy_points(50), attack_damage(20) {
+ClapTrap::ClapTrap() : hit_point(10), energy_points(10), attack_damage(0) {
     std::cout << "ClapTrap constructor called" << std::endl;
 }
 

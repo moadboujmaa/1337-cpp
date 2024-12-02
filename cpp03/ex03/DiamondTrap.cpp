@@ -13,7 +13,7 @@
 #include "DiamondTrap.hpp"
 
 // Constructor
-DiamondTrap::DiamondTrap(void) : ClapTrap(), ScavTrap(), FragTrap()
+DiamondTrap::DiamondTrap(void)
 {
     this->hit_point = FragTrap::hit_point;
     this->energy_points = ScavTrap::energy_points;
@@ -24,7 +24,10 @@ DiamondTrap::DiamondTrap(void) : ClapTrap(), ScavTrap(), FragTrap()
 // Copy constructor
 DiamondTrap::DiamondTrap(const DiamondTrap& obj)
 {
-    (void) obj;
+    this->name = obj.name;
+    this->attack_damage = obj.attack_damage;
+    this->energy_points = obj.energy_points;
+    this->hit_point = obj.hit_point;
 	std::cout << "DiamondTrap Copy constructor called" << std::endl;
 }
 
@@ -32,9 +35,13 @@ DiamondTrap::DiamondTrap(const DiamondTrap& obj)
 DiamondTrap& DiamondTrap::operator=(const DiamondTrap& obj)
 {
 	std::cout << "DiamondTrap Copy assignment operator called" << std::endl;
-    (void) obj;
 	if (this != &obj)
-	{}
+	{
+        this->name = obj.name;
+        this->attack_damage = obj.attack_damage;
+        this->energy_points = obj.energy_points;
+        this->hit_point = obj.hit_point;
+	}
 	return (*this);
 }
 

@@ -13,7 +13,7 @@
 #include "FragTrap.hpp"
 
 // Constructor
-FragTrap::FragTrap(void) : ClapTrap()
+FragTrap::FragTrap(void)
 {
     this->hit_point = 100;
     this->energy_points = 100;
@@ -33,7 +33,10 @@ FragTrap& FragTrap::operator=(const FragTrap& obj)
     std::cout << "FragTrap Copy assignment operator called" << std::endl;
     if (this != &obj)
     {
-        ClapTrap::operator=(obj);
+        this->name = obj.name;
+        this->attack_damage = obj.attack_damage;
+        this->energy_points = obj.energy_points;
+        this->hit_point = obj.hit_point;
     }
     return (*this);
 }

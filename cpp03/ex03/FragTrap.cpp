@@ -53,6 +53,7 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name)
     this->energy_points = 100;
     this->attack_damage = 30;
     std::cout << "FragTrap Param constructor called" << std::endl;
+    std::cout << "name is :" << name << std::endl;
 }
 
 void FragTrap::attack(const std::string &target) {
@@ -66,6 +67,6 @@ void FragTrap::attack(const std::string &target) {
 }
 
 void FragTrap::highFivesGuys(void) {
-    std::cout << "FragTrap " << name << "requests a high five!" << std::endl;
+    std::cout << "FragTrap " << name << " requests a high five!" << std::endl;
 }
 

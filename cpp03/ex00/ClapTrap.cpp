@@ -13,7 +13,7 @@
 #include "ClapTrap.hpp"
 
 // Constructor
-ClapTrap::ClapTrap() : name("default"), hit_point(10), energy_points(10), attack_damage(0) {
+ClapTrap::ClapTrap() : name("default_name"), hit_point(10), energy_points(10), attack_damage(0) {
 	std::cout << "ClapTrap constructor called" << std::endl;
 }
 
@@ -24,6 +24,7 @@ ClapTrap::ClapTrap(const ClapTrap &obj) : name(obj.name), hit_point(obj.hit_poin
 
 // copy assignment operator
 ClapTrap &ClapTrap::operator=(const ClapTrap &obj) {
+    std::cout << "ClapTrap copy assignment operator called" << std::endl;
 	if (this != &obj)
 	{
 		this->name = obj.name;
@@ -40,7 +41,7 @@ ClapTrap::~ClapTrap() {
 }
 
 ClapTrap::ClapTrap(std::string _name) : name(_name), hit_point(10), energy_points(10), attack_damage(0) {
-	std::cout << "ClapTrap Constructor called" << std::endl;
+	std::cout << "ClapTrap Named Constructor called" << std::endl;
 }
 
 void ClapTrap::attack(const std::string &target) {

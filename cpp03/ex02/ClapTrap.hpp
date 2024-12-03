@@ -27,8 +27,8 @@ class ClapTrap {
 		ClapTrap &operator=(const ClapTrap &obj); // copy assignment operator
 		virtual ~ClapTrap(); // destructor
 
-        virtual ClapTrap(std::string name);
-		void attack(const std::string &target);
+		ClapTrap(std::string name);
+        virtual void attack(const std::string &target);
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
 };	

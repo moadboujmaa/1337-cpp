@@ -49,10 +49,12 @@ ScavTrap::~ScavTrap(void)
 
 ScavTrap::ScavTrap(std::string _name) : ClapTrap(_name)
 {
+
     this->hit_point = 100;
     this->energy_points = 50;
     this->attack_damage = 20;
     std::cout << "ScavTrap params constructor called" << std::endl;
+    std::cout << "name is :" << _name << std::endl;
 }
 
 void ScavTrap::attack(const std::string &target) {

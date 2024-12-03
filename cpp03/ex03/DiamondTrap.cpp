@@ -15,9 +15,9 @@
 // Constructor
 DiamondTrap::DiamondTrap(void)
 {
-    this->hit_point = FragTrap::hit_point;
-    this->energy_points = ScavTrap::energy_points;
-    this->attack_damage = FragTrap::attack_damage;
+    this->name = "default";
+    ClapTrap::name = this->name + "_clap_name";
+    this->energy_points = 50;
 	std::cout << "DiamondTrap Default constructor called" << std::endl;
 }
 
@@ -51,19 +51,17 @@ DiamondTrap::~DiamondTrap(void)
 	std::cout << "DiamondTrap Destructor called" << std::endl;
 }
 
-DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), ScavTrap(), FragTrap()
+DiamondTrap::DiamondTrap(std::string _name) : ClapTrap(_name + "_clap_name")
 {
-    this->name = name;
-    this->hit_point = FragTrap::hit_point;
-    this->energy_points = ScavTrap::energy_points;
-    this->attack_damage = FragTrap::attack_damage;
+    this->name = _name;
+    this->energy_points = 50;
     std::cout << "DiamondTrap Default constructor called" << std::endl;
 }
 
 void    DiamondTrap::attack(const std::string &target) {
-    FragTrap::attack(target);
+    ScavTrap::attack(target);
 }
 
 void DiamondTrap::whoAmI() {
-    std::cout << "I am DiamondTrap " + name << std::endl;
+    std::cout << "I am DiamondTrap " + name <<  ". clap name is : " << ClapTrap::name << std::endl;
 }

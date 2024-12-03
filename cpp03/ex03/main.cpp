@@ -13,8 +13,9 @@
 #include "DiamondTrap.hpp"
 
 int main() {
-    DiamondTrap a("moad");
-    a.whoAmI();
-    a.highFivesGuys();
+    DiamondTrap *a = new DiamondTrap("Moad");
+//    std::cout << "a enragy : " << a.energy_points << std::endl;
+     a->whoAmI();
+//    a.highFivesGuys();
 	return (0);
 }

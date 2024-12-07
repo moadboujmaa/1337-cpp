@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboujama <mboujama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/04 08:13:14 by mboujama          #+#    #+#             */
-/*   Updated: 2024/12/04 08:13:16 by mboujama         ###   ########.fr       */
+/*   Created: 2024/12/07 18:56:17 by mboujama          #+#    #+#             */
+/*   Updated: 2024/12/07 18:56:18 by mboujama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGANIMAL_HPP
-# define WRONGANIMAL_HPP
+#ifndef BRAIN_HPP
+# define BRAIN_HPP
 # include <iostream>
 
-class WrongAnimal
+class Brain
 {
-	protected:
-		std::string type;
+	private:
+		std::string ideas[100];
 	public:
-		WrongAnimal(void); // Default constructor
-		WrongAnimal(const WrongAnimal& obj); // Copy constructor
-		WrongAnimal&	operator=(const WrongAnimal& obj); // Copy assigment operator
-		virtual ~WrongAnimal(); // Destructor
+		Brain(void); // Default constructor
+		Brain(const Brain& obj); // Copy constructor
+		Brain&	operator=(const Brain& obj); // Copy assigment operator
+		~Brain(); // Destructor
 
-		void makeSound() const;
-		std::string getType( void ) const;
 };
 
 #endif

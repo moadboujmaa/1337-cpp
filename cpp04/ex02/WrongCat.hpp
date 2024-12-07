@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
+/*   WrongWrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboujama <mboujama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/04 08:13:14 by mboujama          #+#    #+#             */
-/*   Updated: 2024/12/04 08:13:16 by mboujama         ###   ########.fr       */
+/*   Created: 2024/12/04 08:13:23 by mboujama          #+#    #+#             */
+/*   Updated: 2024/12/04 08:13:25 by mboujama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGANIMAL_HPP
-# define WRONGANIMAL_HPP
-# include <iostream>
+#ifndef WrongCAT_HPP
+# define WrongCAT_HPP
 
-class WrongAnimal
+# include <iostream>
+#include "WrongAnimal.hpp"
+
+class WrongCat : public WrongAnimal
 {
-	protected:
-		std::string type;
+	private:
+
 	public:
-		WrongAnimal(void); // Default constructor
-		WrongAnimal(const WrongAnimal& obj); // Copy constructor
-		WrongAnimal&	operator=(const WrongAnimal& obj); // Copy assigment operator
-		virtual ~WrongAnimal(); // Destructor
+		WrongCat(void); // Default constructor
+		WrongCat(const WrongCat& obj); // Copy constructor
+		WrongCat&	operator=(const WrongCat& obj); // Copy assigment operator
+		~WrongCat(); // Destructor
 
 		void makeSound() const;
 		std::string getType( void ) const;

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboujama <mboujama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,21 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGANIMAL_HPP
-# define WRONGANIMAL_HPP
+#ifndef ANIMAL_HPP
+# define ANIMAL_HPP
 # include <iostream>
 
-class WrongAnimal
+class Animal
 {
 	protected:
 		std::string type;
 	public:
-		WrongAnimal(void); // Default constructor
-		WrongAnimal(const WrongAnimal& obj); // Copy constructor
-		WrongAnimal&	operator=(const WrongAnimal& obj); // Copy assigment operator
-		virtual ~WrongAnimal(); // Destructor
+		Animal(void); // Default constructor
+		Animal(const Animal& obj); // Copy constructor
+		Animal&	operator=(const Animal& obj); // Copy assigment operator
+		virtual ~Animal(); // Destructor
 
-		void makeSound() const;
+		virtual void makeSound() const = 0;
 		std::string getType( void ) const;
 };
 

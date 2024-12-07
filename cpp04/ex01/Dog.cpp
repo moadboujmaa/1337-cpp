@@ -15,12 +15,8 @@
 Dog::Dog(void)
 {
     this->type = "Dog";
+    this->brain = new Brain();
 	std::cout << "Dog Default constructor called" << std::endl;
-}
-
-Dog::~Dog(void)
-{
-	std::cout << "Dog Destructor called" << std::endl;
 }
 
 Dog::Dog(const Dog& obj) : Animal(obj)
@@ -36,6 +32,12 @@ Dog& Dog::operator=(const Dog& obj)
         this->type = obj.type;
 	}
 	return (*this);
+}
+
+Dog::~Dog(void)
+{
+	delete this->brain;
+	std::cout << "Dog Destructor called" << std::endl;
 }
 
 std::string Dog::getType( void ) const {

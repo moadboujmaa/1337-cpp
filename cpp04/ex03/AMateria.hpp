@@ -16,6 +16,8 @@
 # include <iostream>
 # include "ICharacter.hpp"
 
+class IMateriaSource;
+
 class AMateria
 {
 	protected:
@@ -29,6 +31,7 @@ class AMateria
 		AMateria(std::string const & type);
 		virtual AMateria* clone() const = 0;
 		virtual void use(ICharacter& target);
+		std::string getType( void ) const;
 };
 
 #endif

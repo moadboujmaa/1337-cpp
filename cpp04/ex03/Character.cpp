@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Character.hpp"
+#include "ICharacter.hpp"
 
 Character::Character(void)
 {
@@ -19,11 +19,14 @@ Character::Character(void)
 
 Character::~Character(void)
 {
+	delete[] inventory;
 	std::cout << "Character Destructor called" << std::endl;
 }
 
 Character::Character(const Character& obj) : name(obj.name)
 {
+	for (int i = 0; i < 4; i++)
+		this->inventory[i] = obj.inventory[i];
 	std::cout << "Character Copy constructor called" << std::endl;
 }
 
@@ -32,6 +35,8 @@ Character& Character::operator=(const Character& obj)
 	std::cout << "Character Copy assignment operator called" << std::endl;
 	if (this != &obj)
 	{
+		for (int i = 0; i < 4; i++)
+			this->inventory[i] = obj.inventory[i];
 		this->name = obj.name;
 	}
 	return (*this);
@@ -54,14 +59,13 @@ void Character::equip(AMateria* m)
 }
 
 void Character::unequip(int idx)
-{}
+{
+	if (idx >= 0 && idx <= 3)
+		inventory[i] = nullptr;
+}
 
 void Character::use(int idx, ICharacter& target)
 {
-	for (int i = 0; i < 4; i++) {
-		if (idx == id) {
-
-		}
-	}
+	inventory[i]->use(target);
 }
 

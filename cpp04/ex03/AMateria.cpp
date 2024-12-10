@@ -41,3 +41,7 @@ AMateria::AMateria(std::string const & type) : type(type)
 {
 	std::cout << "AMateria Params constructor called" << std::endl;
 }
+
+std::string AMateria::getType( void ) const {
+	return (type);
+}

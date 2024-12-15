@@ -6,12 +6,11 @@
 /*   By: mboujama <mboujama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 08:13:14 by mboujama          #+#    #+#             */
-/*   Updated: 2024/12/04 08:13:16 by mboujama         ###   ########.fr       */
+/*   Updated: 2024/12/15 12:01:29 by mboujama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#pragma once
 # include <iostream>
 
 class Animal
@@ -27,5 +26,3 @@ class Animal
 		virtual void makeSound() const = 0;
 		std::string getType( void ) const;
 };
-
-#endif

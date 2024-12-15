@@ -6,7 +6,7 @@
 /*   By: mboujama <mboujama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 08:13:17 by mboujama          #+#    #+#             */
-/*   Updated: 2024/12/04 08:13:19 by mboujama         ###   ########.fr       */
+/*   Updated: 2024/12/15 11:35:49 by mboujama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,7 @@ WrongAnimal& WrongAnimal::operator=(const WrongAnimal& obj)
 {
 	std::cout << "WrongAnimal Copy assignment operator called" << std::endl;
 	if (this != &obj)
-	{
 		this->type = obj.type;
-	}
 	return (*this);
 }
 

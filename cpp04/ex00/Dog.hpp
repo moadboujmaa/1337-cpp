@@ -6,19 +6,16 @@
 /*   By: mboujama <mboujama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 08:13:29 by mboujama          #+#    #+#             */
-/*   Updated: 2024/12/04 08:13:30 by mboujama         ###   ########.fr       */
+/*   Updated: 2024/12/15 11:35:01 by mboujama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#pragma once
 # include <iostream>
 # include "Animal.hpp"
 
 class Dog : public Animal
 {
-	private:
-
 	public:
 		Dog(void); // Default constructor
 		Dog(const Dog& obj); // Copy constructor
@@ -28,5 +25,3 @@ class Dog : public Animal
         void makeSound() const;
 		std::string getType( void ) const;
 };
-
-#endif

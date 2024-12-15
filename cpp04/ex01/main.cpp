@@ -6,7 +6,7 @@
 /*   By: mboujama <mboujama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 09:13:16 by mboujama          #+#    #+#             */
-/*   Updated: 2024/12/04 09:13:17 by mboujama         ###   ########.fr       */
+/*   Updated: 2024/12/15 12:49:49 by mboujama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,17 @@ int main()
 {
 	Animal *arr[10];
 
-	for (int i = 0; i < 5; i++)
-		arr[i] = new Dog();
-	for (int i = 5; i < 10; i++)
-		arr[i] = new Cat();
-	for (int i = 0; i < 10; i++)
-		delete arr[i];
+	arr[0] = new Dog();
+	arr[1] = new Cat();
+	arr[2] = new Animal();
+
+	arr[0]->makeSound();
+	arr[1]->makeSound();
+	arr[2]->makeSound();
+	
+	//!!!! Why there is no leaks ??
+	// for (int i = 0; i < 1; i++)
+	// 	delete arr[i];
 	system("leaks -q brain");
 	return (0);
 }

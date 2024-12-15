@@ -6,20 +6,25 @@
 /*   By: mboujama <mboujama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 10:01:44 by mboujama          #+#    #+#             */
-/*   Updated: 2024/12/10 10:01:46 by mboujama         ###   ########.fr       */
+/*   Updated: 2024/12/11 13:20:23 by mboujama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MateriaSource.hpp"
+#include <string>
 
 MateriaSource::MateriaSource(void)
 {
+	for (int i = 0; i < 4; i++) {
+		inventory[i] = nullptr;
+	}
 	std::cout << "MateriaSource Default constructor called" << std::endl;
 }
 
 MateriaSource::~MateriaSource(void)
 {
-	delete[] inventory;
+	for (int i = 0; i < 4; i++)
+		delete inventory[i];
 	std::cout << "MateriaSource Destructor called" << std::endl;
 }
 
@@ -53,16 +58,15 @@ void MateriaSource::learnMateria(AMateria* m) {
 }
 
 AMateria* MateriaSource::createMateria(std::string const & type) {
-	AMateria nw = new AMateria(type);
-	AMateria *tmp;
+	const AMateria *tmp = nullptr;
 
 	for (int i = 0; i < 4; i++) {
-		if (this->inventory[i]->getType() == type)
+		if (this->inventory[i] && this->inventory[i]->getType() == type)
 			tmp = this->inventory[i];
 	}
 	if (tmp)
-		return (new AMateria(tmp))
-	return (0);
+		return (tmp->clone());
+	return (nullptr);
 }
 
 

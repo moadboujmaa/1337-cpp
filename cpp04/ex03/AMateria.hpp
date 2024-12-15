@@ -6,7 +6,7 @@
 /*   By: mboujama <mboujama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 09:53:40 by mboujama          #+#    #+#             */
-/*   Updated: 2024/12/08 09:53:41 by mboujama         ###   ########.fr       */
+/*   Updated: 2024/12/11 11:56:42 by mboujama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <iostream>
 # include "ICharacter.hpp"
 
-class IMateriaSource;
+class ICharacter;
 
 class AMateria
 {

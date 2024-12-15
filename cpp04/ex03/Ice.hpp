@@ -6,7 +6,7 @@
 /*   By: mboujama <mboujama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 11:05:14 by mboujama          #+#    #+#             */
-/*   Updated: 2024/12/08 11:05:18 by mboujama         ###   ########.fr       */
+/*   Updated: 2024/12/15 13:07:53 by mboujama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@
 
 class Ice : public AMateria
 {
-	private:
-
 	public:
 		Ice(void); // Default constructor
 		Ice(const Ice& obj); // Copy constructor

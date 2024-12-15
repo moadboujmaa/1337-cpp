@@ -6,12 +6,11 @@
 /*   By: mboujama <mboujama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 08:13:23 by mboujama          #+#    #+#             */
-/*   Updated: 2024/12/04 08:13:25 by mboujama         ###   ########.fr       */
+/*   Updated: 2024/12/15 12:07:42 by mboujama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-# define CAT_HPP
+#pragma once
 
 # include <iostream>
 # include "Animal.hpp"
@@ -30,5 +29,3 @@ class Cat : public Animal
         void makeSound() const;
         std::string getType( void ) const;
 };
-
-#endif

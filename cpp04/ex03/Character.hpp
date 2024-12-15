@@ -6,13 +6,14 @@
 /*   By: mboujama <mboujama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 12:51:57 by mboujama          #+#    #+#             */
-/*   Updated: 2024/12/08 12:51:58 by mboujama         ###   ########.fr       */
+/*   Updated: 2024/12/11 12:11:00 by mboujama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHARACTER_HPP
-# define CHARACTER_HPP
+#pragma once
+
 # include <iostream>
+# include <string>
 
 # include "ICharacter.hpp"
 # include "AMateria.hpp"
@@ -20,6 +21,7 @@
 class Character : public ICharacter
 {
 	private:
+		std::string name;
 		AMateria *inventory[4];
 	public:
 		Character(void); // Default constructor
@@ -34,4 +36,4 @@ class Character : public ICharacter
 		void use(int idx, ICharacter& target);
 };
 
-#endif
+

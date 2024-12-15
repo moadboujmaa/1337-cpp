@@ -10,11 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WrongCAT_HPP
-# define WrongCAT_HPP
+#pragma once
 
 # include <iostream>
-#include "WrongAnimal.hpp"
+# include "WrongAnimal.hpp"
 
 class WrongCat : public WrongAnimal
 {
@@ -29,5 +28,3 @@ class WrongCat : public WrongAnimal
 		void makeSound() const;
 		std::string getType( void ) const;
 };
-
-#endif

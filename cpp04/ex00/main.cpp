@@ -6,7 +6,7 @@
 /*   By: mboujama <mboujama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 09:13:16 by mboujama          #+#    #+#             */
-/*   Updated: 2024/12/15 11:38:17 by mboujama         ###   ########.fr       */
+/*   Updated: 2024/12/17 13:26:39 by mboujama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,15 @@
 #include "WrongCat.hpp"
 #include "Dog.hpp"
 
-void ll() {
-	system("leaks -q poly");
-}
-
 int main( void )
 {
 	const Animal* meta = new Animal();
 	const Animal* j = new Dog();
 	const Animal* i = new Cat();
 
-	atexit(ll);
 	std::cout << j->getType() << " " << std::endl;
 	std::cout << i->getType() << " " << std::endl;
-	i->makeSound(); //will output the cat sound!
+	i->makeSound();
 	j->makeSound();
 	meta->makeSound();
 

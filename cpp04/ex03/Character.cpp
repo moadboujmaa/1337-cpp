@@ -6,7 +6,7 @@
 /*   By: mboujama <mboujama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 12:44:55 by mboujama          #+#    #+#             */
-/*   Updated: 2024/12/15 13:13:22 by mboujama         ###   ########.fr       */
+/*   Updated: 2024/12/17 13:19:31 by mboujama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,15 @@
 
 Character::Character(void)
 {
+	saved = new Saved();
 	for (int i = 0; i < 4; i++)
-		inventory[i] = nullptr;
+		inventory[i] = NULL;
 	std::cout << "Character Default constructor called" << std::endl;
 }
 
 Character::~Character(void)
 {
+	delete saved;
 	for (int i = 0; i < 4; i++) 
 		delete inventory[i];
 	std::cout << "Character Destructor called" << std::endl;
@@ -28,6 +30,7 @@ Character::~Character(void)
 
 Character::Character(const Character& obj) : name(obj.name)
 {
+	saved = new Saved();
 	for (int i = 0; i < 4; i++)
 		this->inventory[i] = obj.inventory[i];
 	std::cout << "Character Copy constructor called" << std::endl;
@@ -48,9 +51,10 @@ Character& Character::operator=(const Character& obj)
 }
 
 Character::Character(std::string name) {
+	saved = new Saved();
 	this->name = name;
 	for (int i = 0; i < 4; i++)
-		inventory[i] = nullptr;
+		inventory[i] = NULL;
 	std::cout << "Character params constructor called" << std::endl;
 }
 
@@ -64,16 +68,18 @@ void Character::equip(AMateria* m)
 
 	if (!m)
 		return ;
-	while (inventory[i])
+	while (inventory[i] && i < 4)
 		i++;
+
 	if (i < 4)
 		this->inventory[i] = m;
 }
 
 void Character::unequip(int idx)
 {
+	saved->add(new Node(inventory[idx]));
 	if (idx >= 0 && idx <= 3)
-		inventory[idx] = nullptr;
+		inventory[idx] = NULL;
 }
 
 void Character::use(int idx, ICharacter& target)

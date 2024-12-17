@@ -6,7 +6,7 @@
 /*   By: mboujama <mboujama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 08:13:20 by mboujama          #+#    #+#             */
-/*   Updated: 2024/12/15 12:31:34 by mboujama         ###   ########.fr       */
+/*   Updated: 2024/12/17 12:07:27 by mboujama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,9 @@ Cat::Cat(void)
 	std::cout << "Cat Default constructor called" << std::endl;
 }
 
-Cat::Cat(const Cat& obj) : Animal(obj)
+Cat::Cat(const Cat& obj)
 {
+	this->brain = new Brain(*obj.brain);
 	std::cout << "Cat Copy constructor called" << std::endl;
 }
 

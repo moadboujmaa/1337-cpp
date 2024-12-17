@@ -6,7 +6,7 @@
 /*   By: mboujama <mboujama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 10:01:44 by mboujama          #+#    #+#             */
-/*   Updated: 2024/12/11 13:20:23 by mboujama         ###   ########.fr       */
+/*   Updated: 2024/12/17 13:21:26 by mboujama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 MateriaSource::MateriaSource(void)
 {
 	for (int i = 0; i < 4; i++) {
-		inventory[i] = nullptr;
+		inventory[i] = NULL;
 	}
 	std::cout << "MateriaSource Default constructor called" << std::endl;
 }
@@ -31,7 +31,7 @@ MateriaSource::~MateriaSource(void)
 MateriaSource::MateriaSource(const MateriaSource& obj)
 {
 	for (int i = 0; i < 4; i++)
-		this->inventory[i] = obj.inventory[i];
+		this->inventory[i] = obj.inventory[i]->clone();
 	std::cout << "MateriaSource Copy constructor called" << std::endl;
 }
 
@@ -41,7 +41,7 @@ MateriaSource& MateriaSource::operator=(const MateriaSource& obj)
 	if (this != &obj)
 	{
 		for (int i = 0; i < 4; i++)
-			this->inventory[i] = obj.inventory[i];
+			this->inventory[i] = obj.inventory[i]->clone();
 	}
 	return (*this);
 }
@@ -51,14 +51,14 @@ void MateriaSource::learnMateria(AMateria* m) {
 
 	if (!m)
 		return ;
-	while (inventory[i])
+	while (inventory[i] && i < 4)
 		i++;
 	if (i < 4)
 		this->inventory[i] = m;
 }
 
 AMateria* MateriaSource::createMateria(std::string const & type) {
-	const AMateria *tmp = nullptr;
+	const AMateria *tmp = NULL;
 
 	for (int i = 0; i < 4; i++) {
 		if (this->inventory[i] && this->inventory[i]->getType() == type)
@@ -66,7 +66,7 @@ AMateria* MateriaSource::createMateria(std::string const & type) {
 	}
 	if (tmp)
 		return (tmp->clone());
-	return (nullptr);
+	return (NULL);
 }
 
 

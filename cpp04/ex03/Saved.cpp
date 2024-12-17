@@ -1,41 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Saved.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboujama <mboujama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/04 09:13:16 by mboujama          #+#    #+#             */
-/*   Updated: 2024/12/15 12:49:49 by mboujama         ###   ########.fr       */
+/*   Created: 2024/12/17 09:51:54 by mboujama          #+#    #+#             */
+/*   Updated: 2024/12/17 09:52:01 by mboujama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
-#include "Cat.hpp"
-#include "WrongAnimal.hpp"
-#include "WrongCat.hpp"
-#include "Dog.hpp"
+# include "Saved.hpp"
 
-void ll()
-{
-	system("leaks -q brain");
+Saved::Saved() {
+	std::cout << "Saved called" << std::endl;
 }
 
-int main()
-{
-	atexit(ll);
-	Animal *arr[10];
+Node::Node(AMateria *n_materia) : materia(n_materia) {}
 
-	arr[0] = new Dog();
-	arr[1] = new Cat();
-	arr[2] = new Animal();
-
-	arr[0]->makeSound();
-	arr[1]->makeSound();
-	arr[2]->makeSound();
-
-	 for (int i = 0; i < 3; i++)
-	 	delete arr[i];
-	return (0);
+Node::~Node() {
+	delete materia;
 }
 
+void Saved::add(Node *node) {
+	Node *old_head = head;
+	head = node;
+	node->next = old_head;
+}
+
+Saved::~Saved() {
+	std::cout << "~Saved called" << std::endl;
+	Node *tmp;
+	while (head)
+	{
+		tmp = head->next;
+		delete head;
+		head = tmp;
+	}
+}

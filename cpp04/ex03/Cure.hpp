@@ -29,6 +29,7 @@ class Cure : public AMateria
 
 		Cure* clone() const;
 		void use(ICharacter& target);
+		std::string getType( void ) const;
 };
 
 #endif

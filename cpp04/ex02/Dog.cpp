@@ -6,7 +6,7 @@
 /*   By: mboujama <mboujama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 08:13:26 by mboujama          #+#    #+#             */
-/*   Updated: 2024/12/15 12:33:01 by mboujama         ###   ########.fr       */
+/*   Updated: 2024/12/17 12:08:03 by mboujama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,9 @@ Dog::Dog(void)
 	std::cout << "Dog Default constructor called" << std::endl;
 }
 
-Dog::Dog(const Dog& obj) : Animal(obj)
+Dog::Dog(const Dog& obj)
 {
+	this->brain = new Brain(*obj.brain);
 	std::cout << "Dog Copy constructor called" << std::endl;
 }
 

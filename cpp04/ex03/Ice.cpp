@@ -42,6 +42,10 @@ Ice* Ice::clone() const
 	return new Ice();
 }
 
+std::string Ice::getType( void ) const {
+	return (type);
+}
+
 void Ice::use(ICharacter& target)
 {
 	std::cout << "* shoots an ice bolt at " + target.getName() + " *" << std::endl;

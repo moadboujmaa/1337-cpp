@@ -17,12 +17,14 @@
 
 # include "ICharacter.hpp"
 # include "AMateria.hpp"
+# include "Saved.hpp"
 
 class Character : public ICharacter
 {
 	private:
 		std::string name;
 		AMateria *inventory[4];
+		Saved *saved;
 	public:
 		Character(void); // Default constructor
 		Character(const Character& obj); // Copy constructor

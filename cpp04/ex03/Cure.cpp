@@ -44,6 +44,10 @@ Cure* Cure::clone() const
 	return new Cure();
 }
 
+std::string Cure::getType( void ) const {
+	return (type);
+}
+
 void Cure::use(ICharacter& target)
 {
 	std::cout << "* heal's " + target.getName() + "'s wounds *" << std::endl;

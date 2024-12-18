@@ -16,14 +16,8 @@
 #include "WrongCat.hpp"
 #include "Dog.hpp"
 
-void ll()
-{
-	system("leaks -q brain");
-}
-
 int main()
 {
-	atexit(ll);
 	Animal *arr[10];
 
 	arr[0] = new Dog();
@@ -34,7 +28,7 @@ int main()
 	arr[1]->makeSound();
 	arr[2]->makeSound();
 
-	 for (int i = 0; i < 3; i++)
+	for (int i = 0; i < 3; i++)
 	 	delete arr[i];
 	return (0);
 }

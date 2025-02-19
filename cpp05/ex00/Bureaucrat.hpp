@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mboujama <mboujama@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mboujama <mboujama@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 09:36:01 by mboujama          #+#    #+#             */
-/*   Updated: 2025/02/17 13:07:35 by mboujama         ###   ########.fr       */
+/*   Updated: 2025/02/19 10:14:49 by mboujama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@ class Bureaucrat
 		Bureaucrat&	operator=(const Bureaucrat& obj);
 		~Bureaucrat();
 
-		const std::string getName() const;
-		int getGrade() const;
+		const std::string	getName() const;
+		int 				getGrade() const;
 		
-		void increment();
-		void decrement();
+		void				increment();
+		void				decrement();
 		
 		class GradeTooHighException: public std::exception {
 			public:

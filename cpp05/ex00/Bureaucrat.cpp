@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mboujama <mboujama@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mboujama <mboujama@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 09:36:07 by mboujama          #+#    #+#             */
-/*   Updated: 2025/02/17 13:35:58 by mboujama         ###   ########.fr       */
+/*   Updated: 2025/02/19 08:41:15 by mboujama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat(void) : grade(0)
+Bureaucrat::Bureaucrat(void) : name("nobody") , grade(140)
 {
 	std::cout << "Bureaucrat Default constructor called" << std::endl;
 }

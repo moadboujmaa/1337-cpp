@@ -6,13 +6,13 @@
 /*   By: mboujama <mboujama@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 09:36:07 by mboujama          #+#    #+#             */
-/*   Updated: 2025/02/19 10:32:22 by mboujama         ###   ########.fr       */
+/*   Updated: 2025/02/19 09:53:06 by mboujama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat(void) : name("nobody"), grade(0)
+Bureaucrat::Bureaucrat(void) : name("nobody"),  grade(0)
 {
 	std::cout << "Bureaucrat Default constructor called" << std::endl;
 }
@@ -71,7 +71,7 @@ void Bureaucrat::decrement() {
 	grade++;
 }
 
-void Bureaucrat::signForm(Form& form) {
+void Bureaucrat::signForm(AForm& form) {
 	try {
 		form.beSigned(*this);
 		std::cout << "\033[34m" << *this << " signed " << form  << "\033[0m" << std::endl;

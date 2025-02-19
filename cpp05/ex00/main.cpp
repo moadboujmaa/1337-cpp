@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mboujama <mboujama@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mboujama <mboujama@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 09:38:39 by mboujama          #+#    #+#             */
-/*   Updated: 2025/02/17 13:38:05 by mboujama         ###   ########.fr       */
+/*   Updated: 2025/02/19 10:24:57 by mboujama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void    test2() {
 }
 
 void test3() {
-    std::cout << "--> test 3: increment too low" << std::endl;
+    std::cout << "--> test 3: increment too high" << std::endl;
     try {
         Bureaucrat br = Bureaucrat("moad", 3);
 
@@ -57,7 +57,7 @@ void test3() {
 }
 
 void test4() {
-    std::cout << "--> test 3: increment too high" << std::endl;
+    std::cout << "--> test 4: decrement too low" << std::endl;
     try {
         Bureaucrat br = Bureaucrat("moad", 148);
 

@@ -1,14 +1,14 @@
-NAME	= cast
+NAME	= array
 
 CC		= c++
-CFLAGS	= -Wall -Wextra -Werror -std=c++98 
+CFLAGS	= -Wall -Wextra -Werror -std=c++98
 
-SRC		= main.cpp ScalarConverter.cpp TypeCheck.cpp Convert.cpp
+SRC		= main.cpp
 OBJ		= $(SRC:.cpp=.o)
 
 all: $(NAME)
 
-%.o : %.cpp ScalarConverter.hpp TypeCheck.cpp Convert.hpp
+%.o : %.cpp Array.hpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJ)

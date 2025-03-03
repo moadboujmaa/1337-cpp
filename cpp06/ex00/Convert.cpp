@@ -6,7 +6,7 @@
 /*   By: mboujama <mboujama@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 12:43:34 by mboujama          #+#    #+#             */
-/*   Updated: 2025/02/27 11:05:06 by mboujama         ###   ########.fr       */
+/*   Updated: 2025/03/03 10:48:24 by mboujama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,10 @@ int Convert::toInt(const std::string &str) {
 }
 
 double Convert::toDouble(const std::string &str) {
-	return std::strtod(str.c_str(), NULL);
+	std::istringstream iss(str);
+	double res;
+	iss >> res;
+	return res;
 }
 
 char Convert::toChar(const std::string &str) {

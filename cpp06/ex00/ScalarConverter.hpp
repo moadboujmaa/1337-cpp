@@ -6,7 +6,7 @@
 /*   By: mboujama <mboujama@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 11:14:23 by mboujama          #+#    #+#             */
-/*   Updated: 2025/02/27 11:03:20 by mboujama         ###   ########.fr       */
+/*   Updated: 2025/03/03 10:07:06 by mboujama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,14 @@
 # include <iomanip>
 
 enum Types {
-	INT, DOUBLE, FLOAT, CHAR, INVALID, INF, INFF
+	INT, DOUBLE, FLOAT, CHAR, INVALID, PLUS_INF, MINUS_INF, NAN
 };
 
 class ScalarConverter
 {
 	private:
 		static Types getType(const std::string &str);
+		static int getPresicion(const std::string &str);
 	public:
 		ScalarConverter(void);
 		ScalarConverter(const ScalarConverter& obj);

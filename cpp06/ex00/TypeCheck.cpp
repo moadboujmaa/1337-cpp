@@ -6,7 +6,7 @@
 /*   By: mboujama <mboujama@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 11:37:11 by mboujama          #+#    #+#             */
-/*   Updated: 2025/02/26 13:53:16 by mboujama         ###   ########.fr       */
+/*   Updated: 2025/03/03 09:36:19 by mboujama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ TypeCheck& TypeCheck::operator=(const TypeCheck& obj)
 }
 
 bool TypeCheck::isChar(std::string ele) {
-	return ele.length() == 1;
+	return ele.length() == 1 && (ele[0] >= 32 || ele[0] <= 126);
 }
 
 bool TypeCheck::isInt(std::string ele) {
@@ -98,14 +98,20 @@ bool TypeCheck::isDouble(std::string ele) {
 	return periodFound;
 }
 
-bool TypeCheck::isInf(std::string ele) {
-	if (ele == "-inf" || ele == "+inf")
+bool TypeCheck::isPlusInf(std::string ele) {
+	if (ele == "+inff" || ele == "+inf")
 		return true;
 	return false;
 }
 
-bool TypeCheck::isInff(std::string ele) {
-	if (ele == "-inff" || ele == "+inff")
+bool TypeCheck::isMinusInf(std::string ele) {
+	if (ele == "-inff" || ele == "-inf")
+		return true;
+	return false;
+}
+
+bool TypeCheck::isNan(std::string ele) {
+	if (ele == "nan" || ele == "nanf")
 		return true;
 	return false;
 }

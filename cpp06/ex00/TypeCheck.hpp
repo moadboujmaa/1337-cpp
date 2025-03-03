@@ -6,7 +6,7 @@
 /*   By: mboujama <mboujama@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 11:37:21 by mboujama          #+#    #+#             */
-/*   Updated: 2025/02/25 11:14:49 by mboujama         ###   ########.fr       */
+/*   Updated: 2025/03/03 09:36:13 by mboujama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,9 @@ class TypeCheck
 		static bool isInt(std::string ele);
 		static bool isFloat(std::string ele);
 		static bool isDouble(std::string ele);
-		static bool isInf(std::string ele);
-		static bool isInff(std::string ele);
+		static bool isPlusInf(std::string ele);
+		static bool isMinusInf(std::string ele);
+		static bool isNan(std::string ele);
 };
 
 #endif

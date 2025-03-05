@@ -6,11 +6,11 @@
 /*   By: mboujama <mboujama@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 13:39:19 by mboujama          #+#    #+#             */
-/*   Updated: 2025/02/27 13:56:00 by mboujama         ###   ########.fr       */
+/*   Updated: 2025/03/04 11:16:33 by mboujama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Whatever.hpp"
+#include "whatever.hpp"
 
 int main( void ) {
     int a = 2;

@@ -6,7 +6,7 @@
 /*   By: mboujama <mboujama@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 09:23:05 by mboujama          #+#    #+#             */
-/*   Updated: 2025/03/01 11:26:38 by mboujama         ###   ########.fr       */
+/*   Updated: 2025/03/05 08:10:27 by mboujama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ Array<T>::Array(unsigned int _size) : arr(new T[_size]), len(_size) {
 template <typename T>
 Array<T>::Array(const Array& obj) : arr(new T[obj.len]), len(obj.len) {
     std::cout << "Copy operator called" << std::endl;
-    for (int i = 0; i < len; i++)
+    for (unsigned int i = 0; i < len; i++)
         arr[i] = obj.arr[i];
 }
 
@@ -46,7 +46,7 @@ Array<T>&	Array<T>::operator=(const Array& obj) {
 
 template <typename T>
 Array<T>::~Array() {
-    delete arr;
+    delete[] arr;
     std::cout << "Array destructor called" << std::endl;
 }
 
@@ -57,8 +57,7 @@ unsigned int Array<T>::size(void) const {
 
 template <typename T>
 T& Array<T>::operator[](unsigned int index) {
-    if (index >= len) {
-        std::cout << "Index out of bound" << std::endl;
-    }
+    if (index >= len)
+        throw Array<T>::IndexOutOfBoundsException();
     return (arr[index]);
 }

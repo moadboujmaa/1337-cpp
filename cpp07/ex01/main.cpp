@@ -6,7 +6,7 @@
 /*   By: mboujama <mboujama@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 13:57:15 by mboujama          #+#    #+#             */
-/*   Updated: 2025/02/27 16:07:40 by mboujama         ###   ########.fr       */
+/*   Updated: 2025/03/05 10:00:12 by mboujama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,6 @@
 void incrementInt(int *ele) {
     (*ele)++;
 }
-
-void incrementChar(char *ele) {
-    (*ele)++;
-}
-
 
 void testWithInt() {
     int len = 3;
@@ -40,29 +35,7 @@ void testWithInt() {
         std::cout << arr[i] << std::endl;
 }
 
-void testWithChar() {
-    int len = 3;
-    char *arr = new char[len];
-    
-    arr[0] = 'a';
-    arr[1] = 'b';
-    arr[2] = 'c';
-    
-    std::cout << "Before: " << std::endl;
-    for (int i = 0; arr[i]; i++)
-        std::cout << arr[i] << std::endl;
-        
-    iter(arr, len, incrementChar);
-
-    std::cout << "\nAfter: " << std::endl;
-    for (int i = 0; arr[i]; i++)
-        std::cout << arr[i] << std::endl;
-}
-
 int main(void) {
     testWithInt();
-    std::cout << std::endl;
-    testWithChar();
-
     return (0);
 }

@@ -6,14 +6,14 @@
 /*   By: mboujama <mboujama@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 13:38:43 by mboujama          #+#    #+#             */
-/*   Updated: 2025/02/27 16:15:34 by mboujama         ###   ########.fr       */
+/*   Updated: 2025/03/04 11:15:15 by mboujama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef WHATEVER_HPP
 # define WHATEVER_HPP
 
-#include <iostream>
+# include <iostream>
 
 template <typename T>
 void swap(T &a, T &b) {

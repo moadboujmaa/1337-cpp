@@ -1,14 +1,14 @@
-NAME	= array
+NAME	= span
 
 CC		= c++
 CFLAGS	= -Wall -Wextra -Werror -std=c++98
 
-SRC		= main.cpp
+SRC		= main.cpp Span.cpp
 OBJ		= $(SRC:.cpp=.o)
 
 all: $(NAME)
 
-%.o : %.cpp Array.hpp
+%.o : %.cpp Span.hpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJ)

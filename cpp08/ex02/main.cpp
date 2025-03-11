@@ -5,27 +5,38 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboujama <mboujama@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/03 12:13:48 by mboujama          #+#    #+#             */
-/*   Updated: 2025/03/11 08:54:38 by mboujama         ###   ########.fr       */
+/*   Created: 2025/03/09 13:56:08 by mboujama          #+#    #+#             */
+/*   Updated: 2025/03/10 10:25:41 by mboujama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "easyfind.hpp"
+#include "MutantStack.hpp"
 
-int main(void) {
-    std::vector<int> vec;
+int main()
+{
+    MutantStack<int> mstack;
+    mstack.push(5);
+    mstack.push(17);
+    std::cout << mstack.top() << std::endl;
+    mstack.pop();
+    std::cout << mstack.size() << std::endl;
+    mstack.push(3);
+    mstack.push(5);
+    mstack.push(737);
+    //[...]
+    mstack.push(0);
 
-    vec.push_back(15);
-    vec.push_back(1);
-    vec.push_back(5);
+    MutantStack<int>::iterator it = mstack.begin();
+    MutantStack<int>::iterator ite = mstack.end();
 
-    try
+    ++it;
+    --it;
+    
+    while (it != ite)
     {
-        std::cout << easyfind(vec, 1) << std::endl;; 
+        std::cout << *it << std::endl;
+        ++it;
     }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
-    }
+    std::stack<int> s(mstack);
     return 0;
 }

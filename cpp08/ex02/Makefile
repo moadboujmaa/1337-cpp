@@ -1,4 +1,4 @@
-NAME	= array
+NAME	= stack
 
 CC		= c++
 CFLAGS	= -Wall -Wextra -Werror -std=c++98
@@ -8,7 +8,7 @@ OBJ		= $(SRC:.cpp=.o)
 
 all: $(NAME)
 
-%.o : %.cpp Array.hpp
+%.o : %.cpp MutantStack.hpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJ)

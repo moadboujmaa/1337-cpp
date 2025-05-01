@@ -6,7 +6,7 @@
 /*   By: mboujama <mboujama@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 08:32:05 by mboujama          #+#    #+#             */
-/*   Updated: 2025/05/01 14:16:36 by mboujama         ###   ########.fr       */
+/*   Updated: 2025/05/01 19:59:40 by mboujama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@ class BitcoinExchange
 {
 	private:
 		std::string filename;
-		std::map<std::string, double> db;
+		std::map<std::string, float> db;
 		bool dateValidator(const std::string &date);
 		void splitAndSave(std::string str);
 		void getDateAndRate(std::string line, std::string &date, std::string &rate, bool &ok);
-
+		float getNearestRate(std::string date);
 	public:
 		std::string trim(std::string str);
 		void printDB(); //! delete later

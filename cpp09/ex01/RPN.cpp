@@ -6,7 +6,7 @@
 /*   By: mboujama <mboujama@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/02 08:45:41 by mboujama          #+#    #+#             */
-/*   Updated: 2025/05/02 11:07:37 by mboujama         ###   ########.fr       */
+/*   Updated: 2025/10/11 17:36:01 by mboujama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@ RPN::RPN() {}
 RPN::~RPN() {}
 
 void RPN::makeCalculation(char op) {
+    if (stack.size() < 2)
+        throw std::runtime_error("not enough operands");
+    
     int n2 = stack.top();
     stack.pop();
     int n1 = stack.top();
@@ -53,5 +56,9 @@ int RPN::execute(std::string str) {
                 : throw std::runtime_error("Invalid character");
         }
     }
+    
+    if (stack.size() != 1)
+        throw std::runtime_error("invalid expression");
+    
     return stack.top();
 }

@@ -6,7 +6,7 @@
 /*   By: mboujama <mboujama@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/02 08:45:44 by mboujama          #+#    #+#             */
-/*   Updated: 2025/05/02 11:07:48 by mboujama         ###   ########.fr       */
+/*   Updated: 2025/10/11 17:33:55 by mboujama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ class RPN {
     public:
         RPN();
         ~RPN();
-        bool isOperator(char op);
         int execute(std::string str);
         void makeCalculation(char op);
 };

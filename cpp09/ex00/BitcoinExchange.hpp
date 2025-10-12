@@ -32,7 +32,6 @@ class BitcoinExchange
 		float getNearestRate(std::string date);
 	public:
 		std::string trim(std::string str);
-		void printDB(); //! delete later
 		BitcoinExchange(void);
 		BitcoinExchange(const BitcoinExchange& obj);
 		BitcoinExchange&	operator=(const BitcoinExchange& obj);

@@ -6,46 +6,45 @@
 /*   By: mboujama <mboujama@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 08:32:08 by mboujama          #+#    #+#             */
-/*   Updated: 2025/05/01 20:43:11 by mboujama         ###   ########.fr       */
+/*   Updated: 2025/10/11 17:28:52 by mboujama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "BitcoinExchange.hpp"
-#include <climits>
-#include <cstddef>
-#include <cstdio>
-#include <cstdlib>
-#include <cstring>
-#include <exception>
-#include <fstream>
-#include <map>
-#include <sstream>
-#include <stdexcept>
-#include <string>
-#include <limits>
-#include <string>
+# include "BitcoinExchange.hpp"
+# include <climits>
+# include <cstddef>
+# include <cstdio>
+# include <cstdlib>
+# include <cstring>
+# include <exception>
+# include <fstream>
+# include <map>
+# include <sstream>
+# include <stdexcept>
+# include <string>
+# include <limits>
+# include <string>
 
 BitcoinExchange::BitcoinExchange(void)
 {
-	std::cout << "BitcoinExchange Default constructor called" << std::endl;
 }
 
 BitcoinExchange::~BitcoinExchange(void)
 {
-	std::cout << "BitcoinExchange Destructor called" << std::endl;
 }
 
 BitcoinExchange::BitcoinExchange(const BitcoinExchange& obj)
 {
-	std::cout << "BitcoinExchange Copy constructor called" << std::endl;
 	*this = obj;
 }
 
 BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& obj)
 {
-	std::cout << "BitcoinExchange Copy assignment operator called" << std::endl;
 	if (this != &obj)
-	{}
+	{
+		this->db = obj.db;
+		this->filename = obj.filename;
+	}
 	return (*this);
 }
 
@@ -63,29 +62,40 @@ void BitcoinExchange::splitAndSave(std::string str) {
 
 std::string BitcoinExchange::trim(std::string str) {
 	const std::string whitespace = " \t\n\r\f\v";
-    size_t start = str.find_first_not_of(whitespace);    
+    size_t start = str.find_first_not_of(whitespace);
+    if (start == std::string::npos)
+        return "";
     size_t end = str.find_last_not_of(whitespace);
     return str.substr(start, end - start + 1);
 }
 
 void BitcoinExchange::fillDB() {
 	std::ifstream file("data.csv");
+	
+	if (!file.is_open())
+		throw std::runtime_error("could not open database file.");
+	
 	std::string line;
+	bool hasData = false;
 
 	while (std::getline(file, line)) {
 		if (!line.compare("date,exchange_rate"))
 			continue ;
 		splitAndSave(line);
+		hasData = true;
 	}
+	
+	if (!hasData)
+		throw std::runtime_error("database file is empty.");
 }
 
 float BitcoinExchange::getNearestRate(std::string date) {
-	std::map<std::string, float>::reverse_iterator it;
-
-	for (it = db.rbegin(); it != db.rend(); it++) {
-		if (strcmp(it->first.c_str(), date.c_str()) < 0)
-			return it->second;
-	}
+	std::map<std::string, float>::iterator it = db.lower_bound(date);
+	
+	if (it == db.begin())
+		return it->second;
+	if (it == db.end() || it->first != date)
+		--it;
 	return it->second;
 }
 
@@ -106,40 +116,54 @@ bool BitcoinExchange::dateValidator(const std::string &date) {
 	month = strs[1];
 	day = strs[2];
 
-	int months[12] = { 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+	int y = atoi(year.c_str());
+	int m = atoi(month.c_str());
+	int d = atoi(day.c_str());
 
-	if (atoi(month.c_str()) > 12 || atoi(day.c_str()) > months[atoi(month.c_str() - 1)])
+	if (m < 1 || m > 12 || d < 1)
+		return false;
+
+	int months[12] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+	
+	if (m == 2 && ((y % 4 == 0 && y % 100 != 0) || (y % 400 == 0)))
+		months[1] = 29;
+	
+	if (d > months[m - 1])
 		return false;
 	return true;
 }
 
 void BitcoinExchange::getDateAndRate(std::string line, std::string &date, std::string &rate, bool &ok) {
-	std::istringstream ss(line);
-	std::string strs[2];
-	std::string val;
+	size_t pipePos = line.find('|');
 	
-	int i = 0;
+	ok = false;
 	try {
-		while (getline(ss, val, '|')) 
-			strs[i++] = val;
+		if (pipePos == std::string::npos)
+			throw std::runtime_error("bad input => " + line);
 		
-		if (i != 2)
-			throw std::runtime_error("Error: bad input => " + line);
+		date = trim(line.substr(0, pipePos));
+		rate = trim(line.substr(pipePos + 1));
+		
+		if (date.empty() || rate.empty())
+			throw std::runtime_error("bad input => " + line);
 
-		date = trim(strs[0]);
-		rate = trim(strs[1]);
-
-		ok = dateValidator(date);
-		if (!ok)
-			throw std::runtime_error("invalid date.");
-		if (atol(rate.c_str()) > INT_MAX) {
-			ok = false;
-			throw std::runtime_error("too large number.");
-		}
-		if (atoi(rate.c_str()) < 0) {
-			ok = false;
+		if (!dateValidator(date))
+			throw std::runtime_error("bad input => " + date);
+		
+		char *endptr;
+		double rateValue = strtod(rate.c_str(), &endptr);
+		
+		while (*endptr == ' ' || *endptr == '\t')
+			endptr++;
+		if (*endptr != '\0')
+			throw std::runtime_error("bad input => " + rate);
+		
+		if (rateValue < 0)
 			throw std::runtime_error("not a positive number.");
-		}
+		if (rateValue > 1000)
+			throw std::runtime_error("too large number.");
+		
+		ok = true;
 	} catch (const std::exception &e) {
 		std::cout << RED << "Error: " << e.what() << RESET << std::endl;
 	}
@@ -151,7 +175,7 @@ void BitcoinExchange::processFile(std::string &filename) {
 	bool first = true, ok;
 
 	if (!file.is_open())
-		throw std::runtime_error("file doesn't exist");
+		throw std::runtime_error("could not open file.");
 
 	std::string line;
 
@@ -159,24 +183,25 @@ void BitcoinExchange::processFile(std::string &filename) {
 		ok = true;
 		if (first && line.empty())
 			throw std::runtime_error("file is empty.");
-		if (!line.compare("date | value"))
+		if (!line.compare("date | value")) {
+			first = false;
 			continue ;
+		}
 		getDateAndRate(line, date, rate, ok);
 		first = false;
 
-		if (!db[date])
-			db[date] = getNearestRate(date);
-		if (ok)
-			std::cout << GREEN << date << " => " << rate << " = " << atof(rate.c_str()) * db[date] << RESET << std::endl;
+		if (ok) {
+			std::map<std::string, float>::iterator it = db.find(date);
+			float exchangeRate;
+			
+			if (it != db.end())
+				exchangeRate = it->second;
+			else
+				exchangeRate = getNearestRate(date);
+			
+			std::cout << GREEN << date << " => " << rate << " = " << atof(rate.c_str()) * exchangeRate << RESET << std::endl;
+		}
 	}
 	if (first)
 		throw std::runtime_error("file is empty.");
-}
-
-//! Delete later
-void BitcoinExchange::printDB() {
-	std::map<std::string, float>::iterator it;
-
-	for (it = db.begin(); it != db.end(); it++)
-		std::cout << it->first << " => " << it->second  << std::endl;
 }
